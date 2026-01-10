@@ -1,0 +1,24 @@
+name: Manual Reward Input
+
+on:
+  workflow_dispatch:
+    inputs:
+      metamask:
+        description: "MetaMask Wallet Address"
+        required: true
+        type: string
+
+      tokens:
+        description: "Number of Tokens to Reward"
+        required: true
+        type: number
+
+jobs:
+  reward:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print inputs (dummy check)
+        run: |
+          echo "Wallet: ${{ github.event.inputs.metamask }}"
+          echo "Tokens: ${{ github.event.inputs.tokens }}"
